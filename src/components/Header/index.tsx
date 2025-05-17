@@ -15,11 +15,6 @@ const Header = () => {
           />
         </Link>
       </div>
-      <div>
-        <Link href="/">
-          <h1 className="text-black font-bold text-center">Home</h1>
-        </Link>
-      </div>
     </header>
   );
 };
