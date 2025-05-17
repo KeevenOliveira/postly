@@ -13,7 +13,7 @@ export default async function UserPage({ params }: UserPageProps) {
   const user = await getUser(userId);
   const allPosts = await getPosts();
 
-  const userPosts = allPosts.filter(
+  const userPosts = allPosts?.filter(
     (post: PostProps) => post.userId === parseInt(userId)
   );
 
@@ -22,9 +22,9 @@ export default async function UserPage({ params }: UserPageProps) {
       <BackButton />
       <section className="flex flex-col items-center text-center mb-10">
         <div className="text-black w-[100px] h-[100px] rounded-full bg-[#6E9BFF] flex items-center justify-center text-3xl font-bold mx-auto md:mx-0 mb-4">
-          {getInitialsCharactersByName(user.name)}
+          {getInitialsCharactersByName(String(user?.name))}
         </div>
-        <h1 className="text-black text-3xl font-bold">{user.name}</h1>
+        <h1 className="text-black text-3xl font-bold">{user?.name}</h1>
         <p className="text-gray-400">Author</p>
       </section>
       <section>

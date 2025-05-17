@@ -1,4 +1,6 @@
 import { Inter } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Header from "@/components/Header";
 import "./globals.css";
@@ -20,6 +22,17 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         <div className="pt-16 min-h-screen">{children}</div>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </body>
     </html>
   );

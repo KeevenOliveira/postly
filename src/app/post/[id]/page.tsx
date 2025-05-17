@@ -16,7 +16,11 @@ export default async function PostPage({ params }: PostPageProps) {
     getPostComments(postId),
   ]);
 
-  const user = await getUser(post.userId);
+  if (!post) {
+    return <p className="text-red-500">Erro ao carregar este post.</p>;
+  }
+
+  const user = await getUser(String(post?.userId));
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-10 bg-white rounded-xl">
@@ -27,9 +31,9 @@ export default async function PostPage({ params }: PostPageProps) {
         <p className="text-gray-700">{post.body}</p>
         <Link
           className="text-blue-700 underline mt-4 font-medium"
-          href={`/user/${user.id}`}
+          href={`/user/${user?.id}`}
         >
-          {user.name}
+          {user?.name}
         </Link>
       </section>
 
