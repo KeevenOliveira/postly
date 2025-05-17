@@ -20,20 +20,34 @@ describe("<PostCard/>", () => {
 
   it("should render a link to the correct post URL", () => {
     render(<PostCard {...mockPost} />);
-
     const link = screen.getByRole("link");
     expect(link).toHaveAttribute("href", `/post/${mockPost.id}`);
   });
 
-  it("should have expected class names for styling", () => {
+  it("should have expected class names for layout", () => {
     render(<PostCard {...mockPost} />);
-
     const link = screen.getByRole("link");
+
     expect(link).toHaveClass(
-      "block",
+      "flex",
+      "items-center",
+      "justify-between",
       "border",
       "rounded-md",
-      "hover:bg-gray-50"
+      "p-4",
+      "hover:bg-gray-50",
+      "transition"
     );
+  });
+
+  it("should render the arrow image with correct attributes", () => {
+    render(<PostCard {...mockPost} />);
+    const img = screen.getByRole("img", { hidden: true });
+
+    expect(img).toHaveAttribute(
+      "src",
+      expect.stringContaining("arrow-right.svg")
+    );
+    expect(img).toHaveAttribute("alt", "Arrow right");
   });
 });
