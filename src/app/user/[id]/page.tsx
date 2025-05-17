@@ -5,15 +5,16 @@ import ListPostCards from "@/components/ListPostCards";
 import BackButton from "@/components/BackButton";
 
 interface UserPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function UserPage({ params }: UserPageProps) {
-  const user = await getUser(params?.id);
+  const { id: userId } = await params;
+  const user = await getUser(userId);
   const allPosts = await getPosts();
 
   const userPosts = allPosts.filter(
-    (post: PostProps) => post.userId === parseInt(params?.id)
+    (post: PostProps) => post.userId === parseInt(userId)
   );
 
   return (

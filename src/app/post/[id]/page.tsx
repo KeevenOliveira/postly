@@ -5,11 +5,11 @@ import ListComments from "@/components/ListComments";
 import BackButton from "@/components/BackButton";
 
 interface PostPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const postId = params?.id;
+  const { id: postId } = await params;
 
   const [post, comments] = await Promise.all([
     getPost(postId),
