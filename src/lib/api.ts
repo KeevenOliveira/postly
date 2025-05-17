@@ -2,7 +2,7 @@ const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 export async function getPosts() {
   return fetch(`${BASE_URL}/posts`, {
-    cache: "no-store", //SSR
+    next: { revalidate: 60 * 60 }, // 1 hour
   }).then((res) => res.json());
 }
 
