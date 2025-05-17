@@ -11,6 +11,9 @@
 ## Video
 https://github.com/user-attachments/assets/dfdacfe9-f705-4c12-9598-c31cd25ee864
 
+## Figma
+https://www.figma.com/design/O8sLRfZ5MlHmJO9ebjS0tM/Postly?node-id=3-14&t=KaX2wSYxx70h0IQg-0
+
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
