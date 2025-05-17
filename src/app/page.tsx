@@ -1,22 +1,18 @@
 import Link from "next/link";
+
 import { getPosts } from "@/lib/api";
+import PostProps from "@/types/post";
 
 export default async function HomePage() {
   const posts = await getPosts();
 
   return (
-    <main className="max-w-2xl mx-auto px-4 py-10">
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h1 className="text-3xl font-bold mb-2">Postly</h1>
-        <p className="text-gray-500 mb-6">
-          A simple and <span className="font-semibold">elegant</span> blog
-          reader built with Next.js.
-        </p>
-
-        <hr className="mb-6" />
+    <main className="max-w-6xl mx-auto">
+      <div className="bg-white rounded-xl  p-6">
+        <h1 className="text-3xl font-bold mb-5">The latest news</h1>
 
         <div className="space-y-4">
-          {posts.map((post) => (
+          {posts.map((post: PostProps) => (
             <Link
               key={post.id}
               href={`/post/${post.id}`}
