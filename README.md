@@ -19,6 +19,7 @@ https://www.figma.com/design/O8sLRfZ5MlHmJO9ebjS0tM/Postly?node-id=3-14&t=KaX2wS
 - [Project Structure](#project-structure)
 - [Scripts](#scripts)
 - [Dependencies](#dependencies)
+- [Information](#information)
 
 ## Getting Started
 
@@ -71,7 +72,7 @@ The following scripts are available in the `package.json` file:
   Builds the production-ready application.
 - **Start**: `npm start`
   Starts the production server.
-  - **Lint**: `npm run lint`
+- **Lint**: `npm run lint`
   Verify all code of application with Eslint.
 - **Test**: `npm run test`
   Runs the test suite using Jest.
